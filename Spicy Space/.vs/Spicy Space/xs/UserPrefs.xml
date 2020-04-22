@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{1D1DDED6-41A2-8E56-1C68-D7D514AE326F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EndOfTheWorld.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Player.cs" Line="39" Column="29" />
+      <File FileName="Assets/Scripts/EndOfTheWorld.cs" Line="10" Column="37" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Spicy Space" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="EndOfTheWorld.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f0a4d411-0978-45ee-a795-e5c05ee73c37" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
