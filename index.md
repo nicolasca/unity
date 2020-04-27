@@ -1,3 +1,3 @@
 ## Unity projects
 
-[Spicy Space](./games/spicy-space.md)
+[Spicy Space](./games/spicy-space.html)
