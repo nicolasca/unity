@@ -4,15 +4,23 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Config
+    [Header("Player")]
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 0.5f;
+    [SerializeField] int health = 500;
+
+    [Header("Projectile")]
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFiringPeriod = 0.1f;
+    [SerializeField] GameObject cannonballPrefab;
 
+    [Header("Sound Effects")]
+    [SerializeField] AudioClip audioClipDeath;
+    [SerializeField] [Range(0, 1f)] float volumeDeath = 1f;
+    [SerializeField] AudioClip audioClipShoot;
+    [SerializeField] [Range(0, 1f)] float volumeShoot = 1f;
     Coroutine firingCoroutine;
 
-    // Reference
-    [SerializeField] GameObject cannonballPrefab;
 
     float xMin;
     float xMax;
@@ -32,6 +40,42 @@ public class Player : MonoBehaviour
         Fire();
     }
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+        if (damageDealer)
+        {
+            health = Mathf.Max(health - damageDealer.GetDamage(), 0); // Avoid negative score
+            damageDealer.Hit();
+            if (health <= 0)
+            {
+                Die();
+            }
+        }
+        
+    }
+
+    private void Die()
+    {
+        StartCoroutine(PlayDeathMusicAndWait());
+    }
+
+    private IEnumerator PlayDeathMusicAndWait()
+    {
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+
+        AudioSource.PlayClipAtPoint(audioClipDeath, Camera.main.transform.position, volumeDeath);
+        yield return new WaitForSeconds(audioClipDeath.length);
+        FindObjectOfType<Level>().LoadGameOver();
+    }
+
+
     private void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -46,6 +90,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator FireContinuously()
     {
+        AudioSource.PlayClipAtPoint(audioClipShoot, Camera.main.transform.position, volumeShoot);
         while(true)
         {
             GameObject cannonball =

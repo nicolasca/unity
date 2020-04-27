@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Cannonball : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnBecameInvisible()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(gameObject);
     }
 }
