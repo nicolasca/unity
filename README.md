@@ -1,4 +1,4 @@
 # Unity games
 
-## [Spicy Space](./games/spicy-space.html)
+## [Spicy Space](https://i.simmer.io/@nicolasca/random-space)
 ![Screen Spicy Space](./assets/images/screen-spicy-space-sm.png)
